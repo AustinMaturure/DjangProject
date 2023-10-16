@@ -1,0 +1,51 @@
+{% extends 'practice/base.html' %}
+<!-- Extend the 'base.html' template -->
+
+{% block content %}
+<!-- Define a content block within the extended template -->
+
+
+<div class="login-form-container">
+  <h1>Log In</h1>
+  <!-- Error mesage handling -->
+  {% for message in messages %}
+  <div
+    class="{% if message.tags == 'error' %}alert alert-danger{% elif message.tags == 'success' %}alert alert-success{% else %}alert alert-info{% endif %}"
+  >
+    {{ message }}
+  </div>
+  {% endfor %}
+  <!-- Display a heading for the login form -->
+  <form class="site-form" action="{% url 'accounts:login' %}" method="post">
+    {% csrf_token %}
+    <!-- Include a CSRF token for security -->
+
+    <!-- Form field for entering the username -->
+    <div class="form-group">
+      <label for="{{ form.username.id_for_label }}">Username:</label>
+      <!-- Display a label for the username input field -->
+      {{ form.username }}
+      <!-- Display the username input field -->
+    </div>
+
+    <!-- Form field for entering the password -->
+    <div class="form-group">
+      <label for="{{ form.password.id_for_label }}">Password:</label>
+      <!-- Display a label for the password input field -->
+      {{ form.password }}
+      <!-- Display the password input field -->
+    </div>
+  <!-- Sending next parameter so django knows where to go if login was a succsess -->
+  {% if request.GET.next %}
+    <input type="hidden" name="next" value={{ request.GET.next}}></input>
+  {% endif %}
+    <!-- Submit button for the login form -->
+    <input type="submit" value="Log in" class="submit-button" />
+    <label class="sign-up-cta"
+      >Don't have an account? <a href="{% url 'accounts:signup' %}"> Sign up</a>
+    </label>
+  </form>
+</div>
+
+{% endblock %}
+<!-- End of the content block -->

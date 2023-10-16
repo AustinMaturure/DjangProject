@@ -1,0 +1,54 @@
+{% extends 'practice/base.html' %}
+<!-- Extend the 'base.html' template -->
+
+{% block content %}
+<!-- Define a content block within the extended template -->
+
+<div class="signup-form-container">
+  <h1>Sign Up</h1>
+  {% for message in messages %}
+  <div
+    class="{% if message.tags == 'error' %}alert alert-danger{% elif message.tags == 'success' %}alert alert-success{% else %}alert alert-info{% endif %}"
+  >
+    {{ message }}
+  </div>
+  {% endfor %}
+  <!-- Display a heading for the signup form -->
+  <form class="site-form" action="/accounts/signup/" method="post">
+    {% csrf_token %}
+    <!-- Include a CSRF token for security -->
+
+    <!-- Form field for entering the username -->
+    <div class="form-group">
+      <label for="{{ form.username.id_for_label }}">Username:</label>
+      <!-- Display a label for the username input field -->
+      {{ form.username }}
+      <!-- Display the username input field -->
+    </div>
+
+    <!-- Form field for entering the password -->
+    <div class="form-group">
+      <label for="{{ form.password1.id_for_label }}">Password:</label>
+      <!-- Display a label for the password input field -->
+      {{ form.password1 }}
+      <!-- Display the password input field -->
+    </div>
+
+    <!-- Form field for confirming the password -->
+    <div class="form-group">
+      <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+      <!-- Display a label for the password confirmation input field -->
+      {{ form.password2 }}
+      <!-- Display the password confirmation input field -->
+    </div>
+
+    <!-- Submit button for the signup form -->
+    <input type="submit" value="Sign Up" class="submit-button" />
+    <label class="sign-up-cta"
+      >Already have an account? <a href="{% url 'accounts:login' %}"> Log in</a>
+    </label>
+  </form>
+</div>
+
+{% endblock %}
+<!-- End of the content block -->

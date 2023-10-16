@@ -1,0 +1,161 @@
+/* Global styles */
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* Header styles */
+
+header {
+  background-color: #0f555b;
+  padding: 10px 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.logo img {
+  width: 710px;
+  filter: brightness(0) invert(1);
+  object-fit: cover;
+  height: 100px;
+}
+
+nav ul {
+  list-style: none;
+  font-size: 30px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #2170c5;
+}
+
+/* Article list styles */
+
+.article {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.article h2 {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.article p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.article p.date {
+  font-size: 14px;
+  color: #0f345b;
+}
+
+.article-thumbnail {
+  flex: 1;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Detail page styles */
+
+.detail-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.left-column,
+.right-column {
+  flex: 1;
+  padding: 20px;
+}
+
+.left-column {
+  background-color: #f9f9f9;
+}
+
+.right-column {
+  background-color: #fff;
+}
+
+/* Button styles */
+
+a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+a.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+a.button:hover {
+  background-color: #0056b3;
+}
+
+/* Additional images container styles */
+
+.additional-images-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.additional-image img {
+  max-width: 100%;
+  height: 200px;
+}
+
+.signup-form-container {
+  background-color: #0f555b;
+}

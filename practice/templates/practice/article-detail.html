@@ -1,0 +1,40 @@
+{% extends 'practice/base.html' %}
+<!-- Extend the 'base.html' template -->
+
+{% block content %}
+<!-- Define a content block within the extended template -->
+
+<div class="detail-container">
+  <div class="left-column">
+    <img
+      src="{{ article.thumb.url }}"
+      alt="{{ article.images.description }}"
+      class="article-thumbnail-detail"
+    />
+  </div>
+  <div class="right-column">
+    <h1 class="article-title-detail">{{ article.title }}</h1>
+    <!-- Display the article's title -->
+    <p class="article-date-detail">{{ article.date }}</p>
+    <!-- Display the article's date -->
+    <p class="article-body-detail">{{ article.body }}</p>
+    <!-- Display the article's body -->
+  </div>
+</div>
+
+<div class="additional-images-container">
+  {% for image in images %}
+  <div class="additional-image">
+    <img src="{{ image.image.url }}" alt="{{ image.description }}" />
+    <!-- Display additional images -->
+  </div>
+  {% if forloop.counter|divisibleby:2 %}
+</div>
+<div class="additional-images-container">
+  {% endif %}
+  <!-- Close and reopen 'additional-images-container' after every two images -->
+  {% endfor %}
+</div>
+
+{% endblock %}
+<!-- End of the content block -->
