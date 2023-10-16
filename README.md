@@ -1,4 +1,4 @@
- # compTask2
+ # Django Project
  url: https://github.com/AustinMaturure/compTask2
 # Django News Article Website
 
